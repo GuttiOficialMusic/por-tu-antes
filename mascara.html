@@ -1,0 +1,363 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080808">
+  <title>MASCARA — GUTTI</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #080808;
+      --blue: #091f59;
+      --blue-light: #173b91;
+      --text: #f3f3f7;
+      --muted: #888b98;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(
+        ellipse at 50% 45%,
+        rgba(9, 31, 89, 0.28),
+        transparent 65%
+      );
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    header {
+      width: 100%;
+      padding: 27px 8%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .logo {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 19px;
+      font-weight: 700;
+      letter-spacing: 7px;
+    }
+
+    .back {
+      color: #aaaebc;
+      text-decoration: none;
+      font-size: 10px;
+      letter-spacing: 2px;
+      transition: 0.3s;
+    }
+
+    .back:hover {
+      color: white;
+    }
+
+    main {
+      min-height: calc(100vh - 150px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 75px 8%;
+    }
+
+    .content {
+      width: 100%;
+      max-width: 1050px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 90px;
+      animation: appear 1s ease both;
+    }
+
+    .cover-wrap {
+      position: relative;
+      max-width: 440px;
+      width: 100%;
+      margin: auto;
+    }
+
+    .cover-wrap::before {
+      content: "";
+      position: absolute;
+      inset: -13px;
+      border: 1px solid rgba(23,59,145,0.55);
+      pointer-events: none;
+    }
+
+    .cover-wrap::after {
+      content: "";
+      position: absolute;
+      inset: -23px;
+      border: 1px solid rgba(255,255,255,0.07);
+      pointer-events: none;
+    }
+
+    .cover {
+      display: block;
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      box-shadow: 0 25px 80px rgba(0,0,0,0.65);
+    }
+
+    .cover-caption {
+      margin-top: 25px;
+      display: flex;
+      justify-content: space-between;
+      color: var(--muted);
+      font-size: 9px;
+      letter-spacing: 3px;
+    }
+
+    .info {
+      padding: 20px 0;
+    }
+
+    .eyebrow {
+      color: #6384d4;
+      font-size: 10px;
+      letter-spacing: 5px;
+      margin-bottom: 23px;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(48px, 6vw, 78px);
+      font-weight: 500;
+      letter-spacing: -2px;
+      line-height: 1.05;
+      margin-bottom: 17px;
+    }
+
+    .artist {
+      color: #a0a4b4;
+      font-size: 11px;
+      letter-spacing: 7px;
+      margin-bottom: 42px;
+    }
+
+    .quote {
+      max-width: 390px;
+      color: #c3c7d4;
+      font-family: 'Playfair Display', serif;
+      font-size: 21px;
+      font-style: italic;
+      line-height: 1.6;
+      margin-bottom: 45px;
+    }
+
+    .line {
+      width: 55px;
+      height: 1px;
+      background: var(--blue-light);
+      margin-bottom: 35px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+    }
+
+    .button {
+      min-width: 155px;
+      padding: 16px 22px;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      font-size: 10px;
+      letter-spacing: 2px;
+      transition: 0.3s;
+    }
+
+    .youtube {
+      background: var(--blue);
+      color: white;
+      border: 1px solid var(--blue);
+    }
+
+    .youtube:hover {
+      background: var(--blue-light);
+      border-color: var(--blue-light);
+      transform: translateY(-3px);
+    }
+
+    .spotify {
+      color: #e3e7f2;
+      border: 1px solid rgba(255,255,255,0.22);
+    }
+
+    .spotify:hover {
+      border-color: #6384d4;
+      color: white;
+      transform: translateY(-3px);
+    }
+
+    footer {
+      padding: 25px 8%;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      display: flex;
+      justify-content: space-between;
+      color: #686d7b;
+      font-size: 9px;
+      letter-spacing: 3px;
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 750px) {
+      header {
+        padding: 23px 7%;
+      }
+
+      main {
+        padding: 65px 9%;
+      }
+
+      .content {
+        grid-template-columns: 1fr;
+        gap: 65px;
+      }
+
+      .cover-wrap {
+        max-width: 350px;
+      }
+
+      .info {
+        text-align: center;
+      }
+
+      .quote {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .line {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .buttons {
+        justify-content: center;
+      }
+
+      footer {
+        padding: 22px 7%;
+        font-size: 8px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .button {
+        width: 100%;
+      }
+
+      footer {
+        letter-spacing: 1px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <a href="index.html" class="logo">GUTTI</a>
+    <a href="index.html#deluxe" class="back">← VOLVER AL DELUXE</a>
+  </header>
+
+  <main>
+    <div class="content">
+
+      <div class="cover-wrap">
+        <img
+          src="deluxe.jpg"
+          alt="Portada de POR TU ANTES DELUXE"
+          class="cover"
+        >
+
+        <div class="cover-caption">
+          <span>GUTTI — 2026</span>
+          <span>POR TU ANTES DELUXE</span>
+        </div>
+      </div>
+
+      <section class="info">
+        <p class="eyebrow">TRACK 01 / DELUXE</p>
+
+        <h1>MASCARA</h1>
+
+        <p class="artist">G U T T I</p>
+
+        <div class="line"></div>
+
+        <p class="quote">
+          “Nos llevamos algo de esto, si me llamas ya no te contesto.”
+        </p>
+
+        <div class="buttons">
+          <a
+            class="button youtube"
+            href="https://www.youtube.com/results?search_query=Gutti+Mascara"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            YOUTUBE ↗
+          </a>
+
+          <a
+            class="button spotify"
+            href="https://open.spotify.com/search/Gutti%20Mascara"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            SPOTIFY ↗
+          </a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <span>GUTTI © 2026</span>
+    <span>POR TU ANTES DELUXE</span>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,519 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MAS CARA — GUTTI</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --wine: #46090b;
+  --wine-light: #a45c60;
+  --text: #f3eeee;
+  --black: #080808;
+}
+
+body {
+  background: var(--black);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* HEADER */
+
+header {
+  min-height: 85px;
+  padding: 0 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ffffff12;
+  position: relative;
+  z-index: 5;
+  background: #080808;
+}
+
+.logo {
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: 6px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 29px;
+}
+
+nav a {
+  color: #999;
+  font-size: 9px;
+  letter-spacing: 2px;
+  transition: .3s;
+}
+
+nav a:hover {
+  color: white;
+}
+
+/* FONDO */
+
+.background-glow {
+  position: fixed;
+  width: 650px;
+  height: 650px;
+  background: radial-gradient(circle, #46090b40 0%, transparent 70%);
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.star {
+  position: fixed;
+  color: #a45c60;
+  font-size: 15px;
+  opacity: .5;
+  pointer-events: none;
+}
+
+.star.one {
+  top: 25%;
+  left: 8%;
+}
+
+.star.two {
+  top: 68%;
+  right: 9%;
+}
+
+/* CONTENIDO */
+
+main {
+  width: 100%;
+  max-width: 1150px;
+  margin: auto;
+  padding: 55px 35px 75px;
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: #888;
+  font-size: 9px;
+  letter-spacing: 2px;
+  transition: .3s;
+}
+
+.back:hover {
+  color: white;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 85px;
+  margin-top: 55px;
+}
+
+/* PORTADA */
+
+.cover-area {
+  position: relative;
+  max-width: 470px;
+  margin: auto;
+  width: 100%;
+}
+
+.cover-frame {
+  position: relative;
+  padding: 12px;
+  border: 1px solid #ffffff16;
+  background: #ffffff04;
+}
+
+.cover {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  box-shadow: 0 20px 70px #000;
+}
+
+.cover-caption {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  color: #777;
+  font-size: 8px;
+  letter-spacing: 2px;
+}
+
+.cover-decoration {
+  position: absolute;
+  width: 85px;
+  height: 85px;
+  border-top: 1px solid var(--wine-light);
+  border-left: 1px solid var(--wine-light);
+  top: -10px;
+  left: -10px;
+  pointer-events: none;
+}
+
+.cover-decoration.bottom {
+  top: auto;
+  left: auto;
+  bottom: -10px;
+  right: -10px;
+  border: none;
+  border-right: 1px solid var(--wine-light);
+  border-bottom: 1px solid var(--wine-light);
+}
+
+/* INFORMACIÓN */
+
+.info {
+  padding: 20px 0;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  color: var(--wine-light);
+  font-size: 9px;
+  letter-spacing: 4px;
+  margin-bottom: 27px;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 30px;
+  height: 1px;
+  background: var(--wine-light);
+}
+
+h1 {
+  font-size: clamp(48px, 7vw, 78px);
+  font-weight: 500;
+  letter-spacing: 5px;
+  line-height: 1;
+  margin-bottom: 18px;
+}
+
+.artist {
+  color: #888;
+  font-size: 11px;
+  letter-spacing: 6px;
+  margin-bottom: 40px;
+}
+
+.description {
+  max-width: 380px;
+  color: #999;
+  font-size: 13px;
+  line-height: 1.9;
+  margin-bottom: 35px;
+}
+
+/* PLATAFORMAS */
+
+.listen-label {
+  color: #777;
+  font-size: 8px;
+  letter-spacing: 3px;
+  margin-bottom: 15px;
+}
+
+.platforms {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.platform {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  min-width: 155px;
+  padding: 17px 20px;
+  border: 1px solid #ffffff2b;
+  font-size: 9px;
+  letter-spacing: 2px;
+  transition: .3s;
+}
+
+.platform.youtube:hover {
+  background: #a10f18;
+  border-color: #a10f18;
+}
+
+.platform.spotify:hover {
+  background: #1b6942;
+  border-color: #1b6942;
+}
+
+.platform span {
+  font-size: 15px;
+}
+
+/* FRASE */
+
+.quote {
+  margin-top: 60px;
+  padding-top: 25px;
+  border-top: 1px solid #ffffff18;
+}
+
+.quote-label {
+  color: var(--wine-light);
+  font-size: 8px;
+  letter-spacing: 4px;
+  margin-bottom: 18px;
+}
+
+.quote p {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(19px, 3vw, 25px);
+  font-style: italic;
+  line-height: 1.6;
+  color: #d7c9c9;
+}
+
+.quote-number {
+  color: #555;
+  font-size: 9px;
+  letter-spacing: 3px;
+  margin-top: 18px;
+}
+
+/* FOOTER */
+
+footer {
+  border-top: 1px solid #ffffff12;
+  padding: 25px 7%;
+  display: flex;
+  justify-content: space-between;
+  color: #555;
+  font-size: 8px;
+  letter-spacing: 3px;
+}
+
+/* ANIMACIONES */
+
+.cover-frame,
+.info {
+  animation: appear 1s ease both;
+}
+
+.info {
+  animation-delay: .15s;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* MOVIL */
+
+@media (max-width: 750px) {
+  header {
+    padding: 25px 20px;
+    flex-direction: column;
+    gap: 23px;
+  }
+
+  nav {
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  nav a {
+    font-size: 8px;
+  }
+
+  main {
+    padding: 35px 22px 60px;
+  }
+
+  .content {
+    grid-template-columns: 1fr;
+    gap: 45px;
+    margin-top: 40px;
+  }
+
+  .cover-area {
+    max-width: 390px;
+  }
+
+  .info {
+    text-align: center;
+  }
+
+  .eyebrow {
+    justify-content: center;
+  }
+
+  .description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .platforms {
+    justify-content: center;
+  }
+
+  .quote {
+    text-align: center;
+  }
+
+  footer {
+    gap: 15px;
+    flex-direction: column;
+    text-align: center;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="background-glow"></div>
+
+<span class="star one">✦</span>
+<span class="star two">✧</span>
+
+<header>
+  <a href="index.html" class="logo">GUTTI</a>
+
+  <nav>
+    <a href="index.html#album">ALBUM</a>
+    <a href="index.html#deluxe">DELUXE</a>
+    <a href="index.html#video">VIDEO</a>
+    <a href="index.html#sobre-mi">SOBRE MI</a>
+    <a href="index.html#redes">REDES</a>
+  </nav>
+</header>
+
+<main>
+
+  <a href="index.html#album" class="back">
+    ← VOLVER AL ALBUM
+  </a>
+
+  <section class="content">
+
+    <div class="cover-area">
+      <div class="cover-frame">
+        <div class="cover-decoration"></div>
+        <div class="cover-decoration bottom"></div>
+
+        <img
+          src="portada.jpg"
+          alt="Portada de POR TU ANTES"
+          class="cover"
+        >
+      </div>
+
+      <div class="cover-caption">
+        <span>GUTTI — 2026</span>
+        <span>POR TU ANTES</span>
+      </div>
+    </div>
+
+    <div class="info">
+
+      <div class="eyebrow">
+        TRACK 01 / ALBUM
+      </div>
+
+      <h1>MAS CARA</h1>
+
+      <p class="artist">G U T T I</p>
+
+      <p class="description">
+        Una historia de amor, de sentimientos que permanecen
+        y de esos momentos que hacen que alguien se vuelva
+        inolvidable.
+      </p>
+
+      <p class="listen-label">ESCUCHAR EN</p>
+
+      <div class="platforms">
+
+        <a
+          class="platform youtube"
+          href="https://www.youtube.com/results?search_query=Gutti+Mas+Cara"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span>▶</span> YOUTUBE
+        </a>
+
+        <a
+          class="platform spotify"
+          href="https://open.spotify.com/search/Gutti%20Mas%20Cara"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span>♫</span> SPOTIFY
+        </a>
+
+      </div>
+
+      <div class="quote">
+        <div class="quote-label">INTERLÍNEAS — 01</div>
+
+        <p>
+          Una historia que todavía<br>
+          merece ser recordada.
+        </p>
+
+        <div class="quote-number">
+          POR TU ANTES · GUTTI
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+<footer>
+  <span>GUTTI © 2026</span>
+  <span>POR TU ANTES</span>
+</footer>
+
+</body>
+</html>
