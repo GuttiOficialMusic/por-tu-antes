@@ -1,0 +1,1107 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POR TU ANTES — GUTTI</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --bg: #080808;
+    --white: #f4f0ed;
+    --muted: #88817f;
+    --wine: #8b3037;
+    --wine-dark: #46090b;
+    --blue: #294a91;
+    --blue-dark: #091f59;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font-family: inherit;
+}
+
+.section {
+    padding: 110px 9%;
+}
+
+.section-label {
+    color: var(--muted);
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(38px, 6vw, 65px);
+    font-weight: 500;
+    margin-bottom: 45px;
+}
+
+.divider {
+    width: 100%;
+    height: 1px;
+    background: rgba(255,255,255,.09);
+}
+
+/* BACKGROUND */
+
+.background-glow {
+    position: fixed;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    filter: blur(150px);
+    opacity: .12;
+    pointer-events: none;
+    z-index: -1;
+    top: -250px;
+    left: -200px;
+    background: var(--wine);
+}
+
+.star {
+    position: fixed;
+    color: rgba(255,255,255,.35);
+    font-size: 12px;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.star.one {
+    top: 25%;
+    right: 9%;
+}
+
+.star.two {
+    top: 70%;
+    left: 5%;
+    font-size: 8px;
+}
+
+.star.three {
+    top: 48%;
+    right: 4%;
+    font-size: 7px;
+}
+
+/* NAVIGATION */
+
+nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 9%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 4px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: #aaa;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: white;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 20px 80px;
+    position: relative;
+}
+
+.hero-content {
+    animation: appear 1.2s ease both;
+}
+
+.hero-label {
+    color: #aaa;
+    font-size: 10px;
+    letter-spacing: 6px;
+    margin-bottom: 35px;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    font-size: clamp(75px, 13vw, 155px);
+    line-height: .86;
+    letter-spacing: -5px;
+}
+
+.hero h1 .por-tu {
+    display: block;
+}
+
+.hero h1 .antes {
+    display: block;
+    font-family: 'DM Sans', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: .85em;
+    letter-spacing: 8px;
+    color: #8e3037;
+    margin-top: 22px;
+}
+
+.hero-subtitle {
+    margin-top: 38px;
+    color: #aaa;
+    font-size: 11px;
+    letter-spacing: 4px;
+}
+
+.hero-line {
+    width: 1px;
+    height: 65px;
+    background: linear-gradient(transparent, #8b3037);
+    margin: 45px auto 0;
+}
+
+.scroll-text {
+    margin-top: 14px;
+    color: #777;
+    font-size: 9px;
+    letter-spacing: 3px;
+}
+
+/* ALBUM */
+
+.album-section {
+    background: linear-gradient(180deg, transparent, rgba(70,9,11,.10), transparent);
+}
+
+.album-layout {
+    display: grid;
+    grid-template-columns: .9fr 1.1fr;
+    gap: 90px;
+    align-items: center;
+}
+
+.cover-wrap {
+    position: relative;
+    max-width: 450px;
+    margin: auto;
+}
+
+.cover-wrap img {
+    width: 100%;
+    display: block;
+    box-shadow: 0 25px 90px rgba(0,0,0,.6);
+}
+
+.cover-caption {
+    margin-top: 20px;
+    text-align: center;
+    color: #777;
+    font-size: 9px;
+    letter-spacing: 3px;
+}
+
+.album-info .section-title {
+    margin-bottom: 15px;
+}
+
+.album-description {
+    color: #999;
+    line-height: 1.9;
+    font-size: 13px;
+    max-width: 420px;
+    margin-bottom: 40px;
+}
+
+.track-list {
+    border-top: 1px solid rgba(255,255,255,.12);
+}
+
+.track {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 21px 0;
+    border-bottom: 1px solid rgba(255,255,255,.10);
+    transition: .3s;
+}
+
+.track:hover {
+    padding-left: 10px;
+}
+
+.track-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.track-number {
+    color: #8b3037;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.track-name {
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.track-link {
+    color: #888;
+    font-size: 9px;
+    letter-spacing: 2px;
+    white-space: nowrap;
+    transition: .3s;
+}
+
+.track:hover .track-link {
+    color: white;
+}
+
+/* TRANSITION */
+
+.transition {
+    padding: 140px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.transition small {
+    font-size: 9px;
+    letter-spacing: 5px;
+    color: #8b3037;
+}
+
+.transition h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    font-size: clamp(35px, 7vw, 75px);
+    margin: 25px 0;
+}
+
+.transition p {
+    color: #888;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+/* DELUXE */
+
+.deluxe-section {
+    background: linear-gradient(180deg, transparent, rgba(9,31,89,.15), transparent);
+}
+
+.deluxe-section .section-label {
+    color: #6686cf;
+}
+
+.deluxe-layout {
+    display: grid;
+    grid-template-columns: .9fr 1.1fr;
+    gap: 90px;
+    align-items: center;
+}
+
+.deluxe-cover img {
+    width: 100%;
+    display: block;
+    box-shadow: 0 25px 90px rgba(0,0,0,.6);
+}
+
+.deluxe-section .track-number {
+    color: #6686cf;
+}
+
+.deluxe-section .track:hover .track-link {
+    color: #9bb7ff;
+}
+
+/* COUNTDOWN */
+
+.countdown-section {
+    padding: 120px 20px;
+    text-align: center;
+    background: radial-gradient(
+        ellipse at center,
+        rgba(70, 9, 11, .18),
+        transparent 70%
+    );
+}
+
+.countdown-label {
+    color: #a34b52;
+    font-size: 10px;
+    letter-spacing: 5px;
+}
+
+.countdown-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(40px, 7vw, 75px);
+    font-weight: 500;
+    margin: 25px 0 12px;
+}
+
+.countdown-subtitle {
+    color: #888;
+    font-size: 10px;
+    letter-spacing: 4px;
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    margin: 55px auto;
+    flex-wrap: wrap;
+}
+
+.time-box {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-width: 90px;
+}
+
+.time-box span {
+    font-family: 'DM Sans', sans-serif;
+    font-size: clamp(38px, 6vw, 65px);
+    font-weight: 300;
+    color: #f4f0ed;
+    font-variant-numeric: tabular-nums;
+}
+
+.time-box small {
+    color: #8b3037;
+    font-size: 9px;
+    letter-spacing: 3px;
+}
+
+.countdown-footer {
+    color: #777;
+    font-size: 9px;
+    letter-spacing: 3px;
+    margin-top: 20px;
+}
+
+/* VIDEO */
+
+.video-section {
+    text-align: center;
+}
+
+.video-container {
+    max-width: 850px;
+    margin: 0 auto;
+    border: 1px solid rgba(255,255,255,.12);
+    padding: 10px;
+    background: #101010;
+}
+
+.video-container video {
+    display: block;
+    width: 100%;
+    max-height: 480px;
+    background: #000;
+}
+
+.video-caption {
+    color: #777;
+    margin-top: 18px;
+    font-size: 10px;
+    letter-spacing: 3px;
+}
+
+/* ABOUT */
+
+.about-section {
+    text-align: center;
+    max-width: 850px;
+    margin: auto;
+}
+
+.about-section .section-title {
+    margin-bottom: 25px;
+}
+
+.about-text {
+    color: #999;
+    font-size: 14px;
+    line-height: 2.1;
+    max-width: 620px;
+    margin: auto;
+}
+
+/* SOCIAL */
+
+.social-section {
+    text-align: center;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 35px;
+    margin-top: 35px;
+}
+
+.social-links a {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: #999;
+    transition: .3s;
+}
+
+.social-links a:hover {
+    color: white;
+}
+
+/* FOOTER */
+
+footer {
+    padding: 35px 9%;
+    border-top: 1px solid rgba(255,255,255,.08);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #666;
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+/* SECRET STAR */
+
+.secret-star {
+    position: fixed;
+    right: 28px;
+    bottom: 25px;
+    background: none;
+    border: none;
+    color: rgba(255,255,255,.5);
+    font-size: 19px;
+    cursor: pointer;
+    transition: .3s;
+    z-index: 20;
+}
+
+.secret-star:hover {
+    color: white;
+    transform: rotate(30deg);
+}
+
+/* MODALS */
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.88);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    backdrop-filter: blur(10px);
+}
+
+.modal.active {
+    display: flex;
+    animation: appear .4s ease;
+}
+
+.modal-content {
+    position: relative;
+    max-width: 500px;
+    width: 100%;
+    padding: 55px 35px;
+    border: 1px solid rgba(255,255,255,.15);
+    background: #0c0c0c;
+    text-align: center;
+}
+
+.modal-content small {
+    color: #8b3037;
+    font-size: 10px;
+    letter-spacing: 4px;
+}
+
+.modal-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    font-weight: 500;
+    margin: 25px 0;
+}
+
+.modal-content p {
+    color: #aaa;
+    font-size: 13px;
+    line-height: 2;
+}
+
+.close-modal {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    background: none;
+    border: none;
+    color: #888;
+    font-size: 23px;
+    cursor: pointer;
+}
+
+/* ANIMATION */
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 800px) {
+    nav {
+        padding: 25px 6%;
+    }
+
+    .nav-links {
+        gap: 13px;
+    }
+
+    .nav-links a {
+        font-size: 8px;
+        letter-spacing: 1px;
+    }
+
+    .section {
+        padding: 80px 7%;
+    }
+
+    .album-layout,
+    .deluxe-layout {
+        grid-template-columns: 1fr;
+        gap: 55px;
+    }
+
+    .cover-wrap {
+        max-width: 420px;
+    }
+
+    .album-info,
+    .deluxe-info {
+        max-width: 600px;
+        width: 100%;
+        margin: auto;
+    }
+
+    .hero h1 {
+        letter-spacing: -3px;
+    }
+
+    .hero h1 .antes {
+        letter-spacing: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    nav {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .nav-links {
+        gap: 15px;
+    }
+
+    .hero {
+        min-height: 90vh;
+    }
+
+    .hero h1 {
+        font-size: 70px;
+    }
+
+    .hero h1 .antes {
+        font-size: .8em;
+        letter-spacing: 4px;
+    }
+
+    .hero-label {
+        letter-spacing: 4px;
+    }
+
+    .track-name {
+        font-size: 11px;
+    }
+
+    .track-link {
+        font-size: 8px;
+    }
+
+    footer {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+    }
+
+    .countdown {
+        gap: 25px 15px;
+    }
+
+    .time-box {
+        min-width: 65px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="background-glow"></div>
+<div class="star one">✦</div>
+<div class="star two">✧</div>
+<div class="star three">✦</div>
+
+<nav>
+    <a href="#" class="logo">GUTTI.</a>
+
+    <div class="nav-links">
+        <a href="#album">Álbum</a>
+        <a href="#deluxe">Deluxe</a>
+        <a href="#estreno">Estreno</a>
+        <a href="#video">Video</a>
+        <a href="#about">Sobre mí</a>
+        <a href="#social">Redes</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+
+<header class="hero">
+    <div class="hero-content">
+        <p class="hero-label">UN PROYECTO MUSICAL DE GUTTI</p>
+
+        <h1>
+            <span class="por-tu">POR TU</span>
+            <span class="antes">ANTES</span>
+        </h1>
+
+        <p class="hero-subtitle">UNA HISTORIA EN DOS PARTES</p>
+
+        <div class="hero-line"></div>
+        <p class="scroll-text">DESLIZA PARA DESCUBRIR</p>
+    </div>
+</header>
+
+<div class="divider"></div>
+
+<!-- ALBUM PRINCIPAL -->
+
+<section class="section album-section" id="album">
+    <div class="album-layout">
+
+        <div class="cover-wrap">
+            <img src="portada.jpg" alt="Portada del álbum Por Tu Antes">
+            <p class="cover-caption">GUTTI — POR TU ANTES</p>
+        </div>
+
+        <div class="album-info">
+            <p class="section-label">01 — ÁLBUM PRINCIPAL</p>
+            <h2 class="section-title">Por tu antes.</h2>
+
+            <p class="album-description">
+                Un conjunto de recuerdos, sentimientos y momentos que
+                marcaron una historia. Cuatro canciones que representan
+                una parte de todo lo que alguna vez fue.
+            </p>
+
+            <div class="track-list">
+
+                <a class="track" href="mas-cara.html">
+                    <div class="track-left">
+                        <span class="track-number">01</span>
+                        <span class="track-name">MAS CARA</span>
+                    </div>
+                    <span class="track-link">VER CANCIÓN ↗</span>
+                </a>
+
+                <a class="track" href="esa-minina.html">
+                    <div class="track-left">
+                        <span class="track-number">02</span>
+                        <span class="track-name">ESA MININA</span>
+                    </div>
+                    <span class="track-link">VER CANCIÓN ↗</span>
+                </a>
+
+                <a class="track" href="solo-por-ti.html">
+                    <div class="track-left">
+                        <span class="track-number">03</span>
+                        <span class="track-name">SOLO POR TI</span>
+                    </div>
+                    <span class="track-link">VER CANCIÓN ↗</span>
+                </a>
+
+                <a class="track" href="lunes-a-lunes.html">
+                    <div class="track-left">
+                        <span class="track-number">04</span>
+                        <span class="track-name">LUNES A LUNES</span>
+                    </div>
+                    <span class="track-link">VER CANCIÓN ↗</span>
+                </a>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- TRANSICIÓN -->
+
+<section class="transition">
+    <small>FIN DE UNA PARTE</small>
+
+    <h2>NO TODO TERMINÓ AQUÍ.</h2>
+
+    <p>Algunas historias todavía tienen algo que contar.</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- DELUXE -->
+
+<section class="section deluxe-section" id="deluxe">
+    <div class="deluxe-layout">
+
+        <div class="deluxe-cover">
+            <img src="deluxe.jpg" alt="Portada de Por Tu Antes Deluxe">
+            <p class="cover-caption">GUTTI — POR TU ANTES DELUXE</p>
+        </div>
+
+        <div class="deluxe-info">
+            <p class="section-label">02 — LA SEGUNDA PARTE</p>
+            <h2 class="section-title">Por tu antes<br>deluxe.</h2>
+
+            <p class="album-description">
+                Lo que quedó después. Otra perspectiva de la misma
+                historia, con sentimientos distintos y cosas que
+                nunca llegaron a decirse.
+            </p>
+
+            <div class="track-list">
+
+                <a class="track" href="mascara.html">
+                    <div class="track-left">
+                        <span class="track-number">01</span>
+                        <span class="track-name">MASCARA</span>
+                    </div>
+                    <span class="track-link">VER CANCIÓN ↗</span>
+                </a>
+
+                <a class="track" href="fracaso.html">
+                    <div class="track-left">
+                        <span class="track-number">02</span>
+                        <span class="track-name">FRACASO</span>
+                    </div>
+                    <span class="track-link">VER CANCIÓN ↗</span>
+                </a>
+
+                <a class="track" href="consecuencias-del-ayer.html">
+                    <div class="track-left">
+                        <span class="track-number">03</span>
+                        <span class="track-name">CONSECUENCIAS DEL AYER</span>
+                    </div>
+                    <span class="track-link">VER CANCIÓN ↗</span>
+                </a>
+
+                <a class="track" href="quien-fallo.html">
+                    <div class="track-left">
+                        <span class="track-number">04</span>
+                        <span class="track-name">QUIEN FALLO</span>
+                    </div>
+                    <span class="track-link">VER CANCIÓN ↗</span>
+                </a>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CUENTA REGRESIVA -->
+
+<section class="countdown-section" id="estreno">
+    <p class="countdown-label">EL MOMENTO SE ACERCA</p>
+
+    <h2>27 / 11 / 2026</h2>
+
+    <p class="countdown-subtitle">POR TU ANTES — GUTTI</p>
+
+    <div class="countdown">
+        <div class="time-box">
+            <span id="days">00</span>
+            <small>DÍAS</small>
+        </div>
+
+        <div class="time-box">
+            <span id="hours">00</span>
+            <small>HORAS</small>
+        </div>
+
+        <div class="time-box">
+            <span id="minutes">00</span>
+            <small>MINUTOS</small>
+        </div>
+
+        <div class="time-box">
+            <span id="seconds">00</span>
+            <small>SEGUNDOS</small>
+        </div>
+    </div>
+
+    <p class="countdown-footer">
+        ALGUNAS HISTORIAS MERECEN SU PROPIO MOMENTO.
+    </p>
+</section>
+
+<div class="divider"></div>
+
+<!-- VIDEO -->
+
+<section class="section video-section" id="video">
+    <p class="section-label">UNA MIRADA AL PROYECTO</p>
+    <h2 class="section-title">Detrás de la historia.</h2>
+
+    <div class="video-container">
+        <video controls playsinline preload="metadata">
+            <source src="video.mp4" type="video/mp4">
+            Tu navegador no puede reproducir este video.
+        </video>
+    </div>
+
+    <p class="video-caption">POR TU ANTES — GUTTI</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- SOBRE MÍ -->
+
+<section class="section about-section" id="about">
+    <p class="section-label">EL ARTISTA DETRÁS DEL PROYECTO</p>
+    <h2 class="section-title">Sobre mí.</h2>
+
+    <p class="about-text">
+        Soy Gutti, un artista independiente. La música es una forma
+        de expresar cosas que a veces no sé cómo decir de otra manera.
+        POR TU ANTES es un proyecto que reúne una parte de esas
+        experiencias, recuerdos y sentimientos.
+    </p>
+</section>
+
+<div class="divider"></div>
+
+<!-- REDES -->
+
+<section class="section social-section" id="social">
+    <p class="section-label">ENCUÉNTRAME</p>
+    <h2 class="section-title">Sigamos conectados.</h2>
+
+    <div class="social-links">
+        <a href="https://www.instagram.com/gutti.wav/" target="_blank" rel="noopener noreferrer">INSTAGRAM ↗</a>
+
+        <a href="https://www.tiktok.com/@gutti.wav" target="_blank" rel="noopener noreferrer">TIKTOK ↗</a>
+
+        <a href="https://www.youtube.com/@Gutti_Music" target="_blank" rel="noopener noreferrer">YOUTUBE ↗</a>
+    </div>
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+    <span>© GUTTI — 2026</span>
+    <span>POR TU ANTES</span>
+    <span>HECHO CON SENTIMIENTO.</span>
+</footer>
+
+<!-- ESTRELLA SECRETA -->
+
+<button class="secret-star" id="secretStar" aria-label="Mensaje secreto">✦</button>
+
+<!-- MENSAJE SECRETO -->
+
+<div class="modal" id="secretModal">
+    <div class="modal-content">
+        <button class="close-modal" aria-label="Cerrar">&times;</button>
+        <small>UN MENSAJE PARA TI</small>
+        <h2>GRACIAS.</h2>
+        <p>
+            SI LLEGASTE HASTA AQUÍ, GRACIAS POR ESCUCHAR MI HISTORIA.
+            ESTO ES SOLO EL PRINCIPIO.
+        </p>
+    </div>
+</div>
+
+<!-- EXPEDIENTE 27/09 -->
+
+<div class="modal" id="dateModal">
+    <div class="modal-content">
+        <button class="close-modal" aria-label="Cerrar">&times;</button>
+        <small>ARCHIVO PRIVADO — EXPEDIENTE 01</small>
+        <h2>27/09</h2>
+        <p>
+            Hay fechas que se quedan contigo, aunque el tiempo siga
+            avanzando. Algunas cosas no se explican: se convierten
+            en canciones.
+        </p>
+    </div>
+</div>
+
+<script>
+/* MODAL DE LA ESTRELLA */
+
+const secretStar = document.getElementById("secretStar");
+const secretModal = document.getElementById("secretModal");
+
+secretStar.addEventListener("click", () => {
+    secretModal.classList.add("active");
+});
+
+/* CERRAR MODALES */
+
+document.querySelectorAll(".close-modal").forEach(button => {
+    button.addEventListener("click", () => {
+        button.closest(".modal").classList.remove("active");
+    });
+});
+
+document.querySelectorAll(".modal").forEach(modal => {
+    modal.addEventListener("click", event => {
+        if (event.target === modal) {
+            modal.classList.remove("active");
+        }
+    });
+});
+
+/* ATAJO SECRETO: 2709 */
+
+let secretCode = "";
+
+document.addEventListener("keydown", event => {
+    if (event.key.length === 1) {
+        secretCode += event.key.toLowerCase();
+        secretCode = secretCode.slice(-4);
+
+        if (secretCode === "2709") {
+            document.getElementById("dateModal").classList.add("active");
+            secretCode = "";
+        }
+    }
+});
+
+/* CUENTA REGRESIVA AL 27/11/2026 */
+
+const releaseDate = new Date(2026, 10, 27, 0, 0, 0).getTime();
+
+function updateCountdown() {
+    const now = Date.now();
+    const difference = releaseDate - now;
+
+    if (difference <= 0) {
+        document.getElementById("days").textContent = "00";
+        document.getElementById("hours").textContent = "00";
+        document.getElementById("minutes").textContent = "00";
+        document.getElementById("seconds").textContent = "00";
+
+        document.querySelector(".countdown-label").textContent =
+            "EL MOMENTO HA LLEGADO";
+
+        document.querySelector(".countdown-footer").textContent =
+            "POR TU ANTES — YA DISPONIBLE";
+
+        return;
+    }
+
+    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((difference / (1000 * 60)) % 60);
+    const seconds = Math.floor((difference / 1000) % 60);
+
+    document.getElementById("days").textContent =
+        String(days).padStart(2, "0");
+
+    document.getElementById("hours").textContent =
+        String(hours).padStart(2, "0");
+
+    document.getElementById("minutes").textContent =
+        String(minutes).padStart(2, "0");
+
+    document.getElementById("seconds").textContent =
+        String(seconds).padStart(2, "0");
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+</script>
+
+</body>
+</html>
